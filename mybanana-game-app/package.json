@@ -9,20 +9,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@babel/runtime": "^7.26.0",
     "axios": "^1.7.7",
     "expo": "^51.0.38",
     "expo-status-bar": "~1.12.1",
     "metro": "^0.80.12",
+    "metro-core": "^0.81.0",
     "metro-inspector-proxy": "^0.78.1",
     "react": "18.2.0",
-    "react-native": "0.74.5"
+    "react-native": "^0.74.5",
+    "react-native-web": "~0.19.10"
   },
   "resolutions": {
     "react": "18.2.0",
     "react-native": "0.76.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.26.0"
   },
   "private": true
 }
