@@ -64,34 +64,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
   image: {
     width: 300,
     height: 300,
-    marginBottom: 20,
   },
   input: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
     marginBottom: 10,
-    paddingHorizontal: 10,
-    width: 200,
+    paddingHorizontal: 5,
+    width: 100,
     textAlign: 'center',
-  },
-  button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    marginTop: 10,
-  },
-  buttonText: {
-    color: 'white',
-    textAlign: 'center',
-  },
-  note: {
-    marginTop: 20,
-    fontSize: 16,
   },
 });
 
