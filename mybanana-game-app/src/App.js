@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image, Button, TextInput } from 'react-native';
 import Welcome from './Welcome';
 import { getBananaData } from './BananaAPI';
 
 const App = () => {
   const [data, setData] = useState(null);
+  const [input, setInput] = useState('');
+  const [note, setNote] = useState('[Wait for first game]');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,15 +16,41 @@ const App = () => {
     fetchData();
   }, []);
 
+  const handleInput = () => {
+    if (parseInt(input) === data.solution) {
+      setNote('Correct! - Click below for a new game.');
+    } else {
+      setNote('Not Correct!');
+    }
+  };
+
+  const newGame = () => {
+    setNote('[Wait for first game]');
+    setInput('');
+    setData(null);
+    const fetchData = async () => {
+      const result = await getBananaData();
+      setData(result);
+    };
+    fetchData();
+  };
+
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
       <Welcome />
       {data ? (
         <View>
-          <Text>Question: {data.question}</Text>
           <Image source={{ uri: data.image }} style={styles.image} />
-          <Text>Solution: {data.solution}</Text>
+          <Text>Enter the missing digit:</Text>
+          <TextInput
+            style={styles.input}
+            value={input}
+            onChangeText={setInput}
+            keyboardType="number-pad"
+          />
+          <Button title="Submit" onPress={handleInput} />
+          <Text>{note}</Text>
+          {note.includes('Correct') && <Button title="New Game" onPress={newGame} />}
         </View>
       ) : (
         <Text>Loading...</Text>
@@ -34,13 +62,36 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
   },
   image: {
     width: 300,
     height: 300,
+    marginBottom: 20,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingHorizontal: 10,
+    width: 200,
+    textAlign: 'center',
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 10,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+  note: {
+    marginTop: 20,
+    fontSize: 16,
   },
 });
 

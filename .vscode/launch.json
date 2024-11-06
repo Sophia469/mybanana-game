@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LoginGUI",
+            "request": "launch",
+            "mainClass": "com.perisic.banana.peripherals.LoginGUI",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "GameGUI",
             "request": "launch",
             "mainClass": "BananaGame/com.perisic.banana.peripherals.GameGUI",

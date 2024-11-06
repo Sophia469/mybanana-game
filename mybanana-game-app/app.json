@@ -3,6 +3,12 @@
     "name": "mybanana-game-app",
     "slug": "mybanana-game-app",
     "version": "1.0.0",
+    "sdkVersion": "51.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -23,6 +29,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "entryPoint": "./src/App.js" 
+    "entryPoint": "./node_modules/expo/AppEntry.js"
   }
 }
