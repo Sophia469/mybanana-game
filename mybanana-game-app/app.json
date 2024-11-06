@@ -10,6 +10,7 @@
       "web"
     ],
     "orientation": "portrait",
+    "entryPoint": "./index.js",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -28,7 +29,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "entryPoint": "./node_modules/expo/AppEntry.js"
+    }
   }
 }
