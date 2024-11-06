@@ -1,43 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="en-gb">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Banana Game</title>
+    <style>
+        h1 {
+            color: blue;
+        }
+        .button-62 {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+        }
+        .h2-62 { 
+            line-height: 2.5; 
+        }
+        .button-62:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+        .button-62:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+    </style>
+    <script>
+        var quest = "";
+        var solution = -1;
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+        let newgame = function() {
+            console.log("New game started");
+            startup();
+        }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        let handleInput = function() {
+            console.log("Handling input");
+            let inp = document.getElementById("input");
+            var note = document.getElementById("note");
+            if (parseInt(inp.value) === solution) {
+                note.innerHTML = 'Correct! -  <button class="button-62" onClick="newgame()" >New game?</button>';
+            } else {
+                note.innerHTML = "Not Correct!";
+            }
+        }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+        let startQuest = function(data) {
+            console.log("Data received:", data);
+            try {
+                var parsed = JSON.parse(data);
+                quest = parsed.question;
+                solution = parsed.solution;
+                let img = document.getElementById("quest");
+                img.src = quest; 
+                let note = document.getElementById("note");
+                note.innerHTML = "Quest is ready.";
+            } catch (e) {
+                console.error("Error parsing data:", e);
+                let note = document.getElementById("note");
+                note.innerHTML = "Failed to load quest.";
+            }
+        }
+
+        let fetchText = async function() {
+            console.log("Fetching data...");
+            let response = await fetch('https://marcconrad.com/uob/banana/api.php');
+            let data = await response.text();
+            startQuest(data);
+        }
+
+        let startup = function() {
+            console.log("Startup called");
+            fetchText();
+        }
+    </script>
+</head>
+<body>
+    <script>
+        startup();
+    </script>
+    <h1>The Banana Game</h1>
+    <img id="quest" />
+    <div>
+        <h2 class="h2-62" id="note">[Wait for first game]</h2>
+        <h2>Enter the missing digit: <input class="button-62" id="input" onchange="handleInput()" type="number" step="1" min="0" max="9"></h2>
+    </div>
+    <p>
+        <hr>
+        <small>
+            &copy; by <a href="https://marcconrad.com/marc-conrad/index.php?n=12&s=mc">Marc Conrad</a> 2023. The material on this page is presented "as is". There is no warranty implied. This application may be discontinued without notice and must not be used for commercial applications. There is also an <a href="doc.php">API</a> available. Use <a href="https://sanfoh.com/six/sym.php?icon=banana&smile=1" target="_new">this link</a> to download up to 1000 games. For any comments or suggestions, <a href="http://marcconrad.com/consultancy/">contact Marc Conrad</a>. <em>Last update:</em> June 2024.
+        </small>
+    </p>
+</body>
 </html>
