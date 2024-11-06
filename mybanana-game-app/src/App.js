@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
 import Welcome from './Welcome';
 import { getBananaData } from './BananaAPI';
 
@@ -16,6 +16,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar style="auto" />
       <Welcome />
       {data ? (
         <View>
@@ -33,8 +34,9 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#fff',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     width: 300,
