@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/App.js', // Ajuste o caminho de entrada conforme necessário
+  entry: './src/App.js', // Certifique-se de que este caminho está correto
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -33,7 +33,9 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
     compress: true,
     port: 9000,
   },
@@ -41,14 +43,5 @@ module.exports = {
     __dirname: true,
     __filename: true,
     global: true,
-    // Adicione apenas propriedades suportadas para evitar erros
-    module: 'empty',
-    dgram: 'empty',
-    dns: 'mock',
-    fs: 'empty',
-    http2: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
   },
 };
