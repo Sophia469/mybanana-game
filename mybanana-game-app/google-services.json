@@ -1,0 +1,29 @@
+{
+    "project_info": {
+      "project_number": "569261475212",
+      "project_id": "mybanana-game-app",
+      "storage_bucket": "mybanana-game-app.firebasestorage.app"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:569261475212:android:1f2c0b5af494053f4682a9",
+          "android_client_info": {
+            "package_name": "myapp.com"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCrrPd4mUXQMGyDoCtU4Vg80hQXDGknPvc"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/App.js', // Certifique-se de que este caminho está correto
+  entry: './App.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -12,12 +12,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
+        use: 'babel-loader',
       },
       {
         test: /\.css$/,
@@ -25,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        use: ['file-loader'],
+        use: 'file-loader',
       },
     ],
   },
@@ -38,10 +33,5 @@ module.exports = {
     },
     compress: true,
     port: 9000,
-  },
-  node: {
-    __dirname: true,
-    __filename: true,
-    global: true,
   },
 };

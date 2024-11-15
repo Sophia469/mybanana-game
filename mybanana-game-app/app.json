@@ -29,6 +29,25 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "assetPlugins": [
+      "expo-asset"
+    ],
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:569261475212:android:1f2c0b5af494053f4682a9",
+          "android_client_info": {
+            "package_name": "myapp.com"
+          }
+        }
+      }
+    ],
+    "plugins": [
+      "expo-asset"
+    ]
   }
 }
