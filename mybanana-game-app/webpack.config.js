@@ -41,6 +41,7 @@ module.exports = async function (env, argv) {
     port: 19006,
     open: true,
     historyApiFallback: true,
+    hot: true,
   };
 
   return config;
