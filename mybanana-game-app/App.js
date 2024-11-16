@@ -1,9 +1,9 @@
 // App.js
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, Button, TextInput } from 'react-native';
-import Welcome from './Welcome';
+import AppNavigator from './src/navigation/AppNavigation';
 import { getBananaData } from './src/BananaAPI';
-
+import Welcome from './src/Welcome'; 
 const App = () => {
   const [data, setData] = useState(null);
   const [input, setInput] = useState('');
@@ -38,6 +38,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
+      <AppNavigator />
       <Welcome />
       {data ? (
         <View>

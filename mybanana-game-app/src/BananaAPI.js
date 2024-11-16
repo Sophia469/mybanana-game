@@ -1,4 +1,4 @@
-// BananaAPI.js
+//BananaAPI.js
 import axios from 'axios';
 
 const BASE_URL = 'https://marcconrad.com/uob/banana/api.php';
@@ -16,4 +16,3 @@ export const getBananaData = async (format = 'json', base64 = 'no') => {
     return null;
   }
 };
-module.exports = { getBananaData };

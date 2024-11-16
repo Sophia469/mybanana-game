@@ -3,7 +3,7 @@
     "name": "mybanana-game-app",
     "slug": "mybanana-game-app",
     "version": "1.0.0",
-    "sdkVersion": "51.0.0",
+    "sdkVersion": "52.0.0",  
     "platforms": [
       "ios",
       "android",
@@ -33,8 +33,15 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "assetPlugins": [
-      "expo-asset"
+    "plugins": [
+      [
+        "expo-asset",
+        {
+          "assetOptions": {
+            "resize": true
+          }
+        }
+      ]
     ],
     "client": [
       {
@@ -45,9 +52,6 @@
           }
         }
       }
-    ],
-    "plugins": [
-      "expo-asset"
     ]
   }
 }
