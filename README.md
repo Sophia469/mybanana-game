@@ -1,30 +1,40 @@
 # 🍌 Banana Game
 
-**Banana Game** is a logic-based math puzzle where players must find the correct number that matches the banana — by using arithmetic operations. The game communicates with the official [Marc Conrad Banana API](https://marcconrad.com/uob/banana/api.php) to validate the logic behind each guess.
+**Banana Game** is a logic-based math puzzle where players must find the correct number that matches the banana — by performing arithmetic operations. The game communicates with the official [Marc Conrad Banana API](https://marcconrad.com/uob/banana/api.php) to validate each guess.
 
-> 🟡 The game runs both as a web app and inside Android (via Android Studio), making it a cross-platform application.
+> 🟡 This game runs both as a **web application** and inside an **Android app** (via Android Studio), making it a true **cross-platform** experience.
 
-## 🎯 How it works
+---
 
-- A banana image is linked to a "magic" number.
-- The player selects two numbers and a math operation (add, subtract, multiply, divide).
-- The game sends the result to the API and checks whether it matches the correct logic.
-- If the guess is correct, a success message is shown.
+## 🎯 How it Works
+
+- A banana image is linked to a hidden "magic" number.
+- The player selects two numbers and a math operation (➕ ➖ ✖️ ➗).
+- The result is sent to the Banana API to check if the guess is correct.
+- If the result matches the logic, a success message is displayed.
+
+---
 
 ## 🚀 Features
 
-- 🔗 API integration with [Marc Conrad’s Banana API](https://marcconrad.com/uob/banana/api.php)
-- 🧠 Logical reasoning and arithmetic-based gameplay
-- 🌍 Fully functional on both **web** and **Android devices**
-- 🧩 Clean interface and responsive layout
+- 🔗 Integration with **Marc Conrad’s Banana API**
+- 🧠 Logic and arithmetic-based gameplay
+- 🌍 **Cross-platform**: Web + Android (via WebView)
+- 📱 Simple, responsive user interface
+- 🎮 Fun and educational mini-game
+
+---
 
 ## 🛠 Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
-- Android WebView (tested via Android Studio)
+- JavaScript
+- Android  *(tested via Android Studio)*
+- WebView
 - External API: Marc Conrad Banana API
+
+---
 
 ## ⚙️ Installation (Web)
 
